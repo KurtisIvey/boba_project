@@ -1,0 +1,22 @@
+<h1>add new boba page</h1>
+<form action="/bobas" method="POST">
+  <div>
+    <label>Name of Boba:</label>
+    <input type="text" name="name" />
+  </div>
+  <select name="temperature">
+    <% categories.forEach(category => { %>
+    <option
+      selected
+      label="<%= category.temperature %>"
+      value="<%= category.id%>"
+    ></option>
+    <% }) %>
+  </select>
+  <div>
+    <label>Description:</label>
+    <textarea name="description"></textarea>
+  </div>
+  <a href="/bobas">Cancel</a>
+  <button type="submit">Create</button>
+</form>
