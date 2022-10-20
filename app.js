@@ -1,5 +1,7 @@
 var createError = require("http-errors");
 var express = require("express");
+const app = express();
+
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -9,15 +11,19 @@ var indexRouter = require("./routes/index");
 const categoryRouter = require("./routes/category");
 const bobaRouter = require("./routes/boba");
 
-var app = express();
-//fjsdkfjlds
-//hide api key
+// use to allow update methods
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
+
+// hide api key
 require("dotenv").config();
+// API_KEY will come in through process.env as process.env.API_KEY
 //console.log(process.env);
 
 //mongodb
 var mongoose = require("mongoose");
 
+// setting the uri for the mongodb connection to mongoDB variable to hide user and pass
 var mongoDB = process.env.API_KEY;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;

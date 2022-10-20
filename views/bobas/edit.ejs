@@ -1,0 +1,29 @@
+<h1>Edit page</h1>
+
+<form action="/bobas/<%=boba.id%>?_method=PUT" method="POST">
+  <div>
+    <label>Name of Boba:</label>
+    <input type="text" name="name" value="<%= boba.name%>" />
+  </div>
+  <select name="temperature">
+    <% categories.forEach(category => { %> <% if (category.temperature ===
+    boba.temperature.temperature) { %>
+    <option
+      selected
+      label="<%= category.temperature %>"
+      value="<%= category.id%>"
+    ></option>
+    <% } else { %>
+    <option
+      label="<%= category.temperature %>"
+      value="<%= category.id%>"
+    ></option>
+    <% } %> <% }) %>
+  </select>
+  <div>
+    <label>Description:</label>
+    <textarea name="description"><%=boba.description %></textarea>
+  </div>
+  <a href="/bobas">Cancel</a>
+  <button type="submit">Update</button>
+</form>

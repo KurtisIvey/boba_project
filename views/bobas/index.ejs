@@ -1,2 +1,12 @@
 <h1>bobas index page</h1>
 <a href="/bobas/new">add a new boba</a>
+<br />
+<br />
+<% bobas.forEach(boba => { %>
+<div>
+  <div><a href="/bobas/<%= boba.id%> "><%=boba.name %></a></div>
+  <div><%=boba.temperature.temperature%></div>
+  <div><%=boba.description %></div>
+</div>
+<br />
+<%}) %>
