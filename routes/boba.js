@@ -65,7 +65,7 @@ router.get("/:id/edit", async (req, res) => {
   }
 });
 
-// update boba
+// update boba router
 router.put("/:id", async (req, res) => {
   let boba;
 
@@ -79,6 +79,29 @@ router.put("/:id", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.redirect("/bobas");
+  }
+});
+
+// delete confirmation page router
+router.get("/:id/deleteconfirm", async (req, res) => {
+  try {
+    const boba = await Boba.findById(req.params.id);
+    res.render("bobas/deleteConfirmation", { boba: boba });
+  } catch (err) {
+    console.log(err);
+    res.redirect("/");
+  }
+});
+
+// delete boba request
+router.delete("/:id", async (req, res) => {
+  let boba;
+  try {
+    boba = await Boba.findById(req.params.id);
+    await boba.remove();
+    res.redirect("/bobas");
+  } catch {
+    res.redirect("/");
   }
 });
 
