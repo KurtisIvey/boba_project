@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Temperature = require("../models/temperature");
+const Boba = require("../models/boba");
 
 /* GET home page. */
 
@@ -19,7 +20,8 @@ router.get("/", async function (req, res) {
 router.get("/:id", async (req, res) => {
   try {
     const category = await Temperature.findById(req.params.id);
-    res.render("categories/show", { category: category });
+    const bobas = await Boba.find({ temperature: category.id });
+    res.render("categories/show", { category: category, bobas: bobas });
   } catch {
     res.redirect("/");
   }
