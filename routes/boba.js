@@ -33,8 +33,10 @@ router.post("/", async (req, res) => {
     //res.redirect(`bobas/${newBoba.id}`)
     res.redirect("bobas");
   } catch (err) {
+    const bobas = await Boba.find({}).populate("temperature").exec();
+
     console.log(err);
-    res.redirect("/");
+    res.render("/bobas/index", { bobas: bobas, error: err });
   }
 });
 

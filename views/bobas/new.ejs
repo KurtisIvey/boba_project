@@ -2,9 +2,14 @@
 <form action="/bobas" method="POST">
   <div>
     <label>Name of Boba:</label>
-    <input type="text" name="name" />
+    <input
+      type="text"
+      name="name"
+      required
+      oninvalid="this.setCustomValidity('Name of Boba field cannot be empty')"
+    />
   </div>
-  <select name="temperature">
+  <select name="temperature" required>
     <% categories.forEach(category => { %>
     <option
       selected
@@ -15,8 +20,19 @@
   </select>
   <div>
     <label>Description:</label>
-    <textarea name="description"></textarea>
+
+    <textarea
+      name="description"
+      required
+      oninvalid="this.setCustomValidity('Description of the Boba cannot be empty')"
+    ></textarea>
   </div>
+
+  <div>
+    <label>Boba</label>
+    <input class="filepond" type="file" name="cover" />
+  </div>
+
   <a href="/bobas">Cancel</a>
   <button type="submit">Create</button>
 </form>
