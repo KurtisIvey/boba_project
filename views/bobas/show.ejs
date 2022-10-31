@@ -1,6 +1,7 @@
 <h1>type of boba <%= boba.name %></h1>
 <div><%=boba.temperature.temperature %></div>
 <div><%=boba.description%></div>
+<img src="<%=boba.url%>" alt=" <%= boba.name %>" />
 
 <a href="/bobas/<%= boba.id%>/edit">Edit</a>
 <a href="/bobas/<%=boba.id%>/deleteconfirm">Delete</a>

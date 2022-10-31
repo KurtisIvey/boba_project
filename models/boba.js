@@ -13,6 +13,9 @@ const bobaSchema = new mongoose.Schema({
     required: true,
     ref: "Temperature",
   },
+  url: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Boba", bobaSchema);

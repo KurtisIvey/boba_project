@@ -2,9 +2,7 @@
 <a href="/bobas/new">add a new boba</a>
 <br />
 <br />
-<% if(error = true) { %>
-<div><%=error%></div>
-<%} %> <% bobas.forEach(boba => { %>
+<% bobas.forEach(boba => { %>
 <div>
   <div><a href="/bobas/<%= boba.id%> "><%=boba.name %></a></div>
   <div><%=boba.temperature.temperature%></div>

@@ -2,6 +2,50 @@ const express = require("express");
 const router = express.Router();
 const Boba = require("../models/boba");
 const Temperature = require("../models/temperature");
+const multer = require("multer");
+const uuid = require("uuid").v4;
+
+//
+// aws s3 v3
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+
+const storage = multer.memoryStorage();
+
+async function s3Uploadv3(file, fileName) {
+  const s3client = new S3Client();
+
+  const param = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Key: `uploads/${fileName}`,
+    Body: file.buffer,
+  };
+  return s3client.send(new PutObjectCommand(param));
+}
+
+function handleFile(file) {
+  const fileName = `${uuid()}-${file.originalname}`;
+  const fileUrl = `https://practiceki92.s3.us-east-2.amazonaws.com/uploads/${fileName}`;
+
+  s3Uploadv3(file, fileName);
+  return fileUrl;
+}
+
+function fileFilter(req, file, cb) {
+  // ['image', 'jpeg]
+  if (file.mimetype.split("/")[0] === "image") {
+    cb(null, true);
+  } else {
+    cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE"), false);
+  }
+}
+
+const upload = multer({
+  storage,
+  fileFilter,
+  limits: { fileSize: 1000000, files: 1 },
+});
+//
+//
 
 /* GET home page. */
 router.get("/", async (req, res) => {
@@ -22,13 +66,22 @@ router.get("/new", async (req, res) => {
 });
 
 // add new boba post req to mongodb
-router.post("/", async (req, res) => {
+router.post("/", upload.array("file"), async (req, res) => {
+  const file = req.files[0];
   const boba = new Boba({
     name: req.body.name,
     description: req.body.description,
     temperature: req.body.temperature,
   });
   try {
+    let uploadedFile = handleFile(file);
+    const boba = new Boba({
+      name: req.body.name,
+      description: req.body.description,
+      temperature: req.body.temperature,
+      url: uploadedFile,
+    });
+
     const newBoba = await boba.save();
     //res.redirect(`bobas/${newBoba.id}`)
     res.redirect("bobas");
@@ -68,14 +121,20 @@ router.get("/:id/edit", async (req, res) => {
 });
 
 // update boba router
-router.put("/:id", async (req, res) => {
+router.put("/:id", upload.array("file"), async (req, res) => {
   let boba;
+  const file = req.files[0];
 
   try {
     boba = await Boba.findById(req.params.id);
     boba.name = req.body.name;
     boba.temperature = req.body.temperature;
     boba.description = req.body.description;
+
+    if (file != null) {
+      let uploadedFile = handleFile(file);
+      boba.url = uploadedFile;
+    }
     await boba.save();
     res.redirect(`/bobas/${boba.id}`);
   } catch (err) {

@@ -1,15 +1,19 @@
 var createError = require("http-errors");
 var express = require("express");
 const app = express();
-
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
+const uuid = require("uuid").v4;
 
+// routes
 var indexRouter = require("./routes/index");
 const categoryRouter = require("./routes/category");
 const bobaRouter = require("./routes/boba");
+
+// aws s3 v3
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 // use to allow update methods
 const methodOverride = require("method-override");
@@ -22,7 +26,6 @@ require("dotenv").config();
 
 //mongodb
 var mongoose = require("mongoose");
-
 // setting the uri for the mongodb connection to mongoDB variable to hide user and pass
 var mongoDB = process.env.API_KEY;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
