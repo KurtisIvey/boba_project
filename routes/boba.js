@@ -65,36 +65,7 @@ router.get("/new", async (req, res) => {
   }
 });
 
-// add new boba post req to mongodb
-router.post("/", upload.array("file"), async (req, res) => {
-  const file = req.files[0];
-  const boba = new Boba({
-    name: req.body.name,
-    description: req.body.description,
-    temperature: req.body.temperature,
-  });
-  try {
-    let uploadedFile = handleFile(file);
-    const boba = new Boba({
-      name: req.body.name,
-      description: req.body.description,
-      temperature: req.body.temperature,
-      url: uploadedFile,
-    });
-
-    const newBoba = await boba.save();
-    //res.redirect(`bobas/${newBoba.id}`)
-    res.redirect("bobas");
-  } catch (err) {
-    const bobas = await Boba.find({}).populate("temperature").exec();
-
-    console.log(err);
-    res.render("/bobas/index", { bobas: bobas, error: err });
-  }
-});
-
 // show individual boba router
-
 router.get("/:id", async (req, res) => {
   try {
     const boba = await Boba.findById(req.params.id)
@@ -120,6 +91,37 @@ router.get("/:id/edit", async (req, res) => {
   }
 });
 
+// add new boba post req to mongodb
+router.post("/", upload.array("file"), async (req, res) => {
+  const file = req.files[0];
+  const boba = new Boba({
+    name: req.body.name,
+    description: req.body.description,
+    temperature: req.body.temperature,
+  });
+  try {
+    const boba = new Boba({
+      name: req.body.name,
+      description: req.body.description,
+      temperature: req.body.temperature,
+    });
+    if (file != null) {
+      let uploadedFile = handleFile(file);
+      boba.url = uploadedFile;
+    }
+    const newBoba = await boba.save();
+    res.redirect(`bobas/${newBoba.id}`);
+    //res.redirect("bobas");
+  } catch (err) {
+    const bobas = await Boba.find({}).populate("temperature").exec();
+    console.log(err);
+    res.render("bobas/index", {
+      bobas: bobas,
+      message: "Error Adding New Boba",
+    });
+  }
+});
+
 // update boba router
 router.put("/:id", upload.array("file"), async (req, res) => {
   let boba;
@@ -136,10 +138,18 @@ router.put("/:id", upload.array("file"), async (req, res) => {
       boba.url = uploadedFile;
     }
     await boba.save();
-    res.redirect(`/bobas/${boba.id}`);
+    const bobas = await Boba.find({}).populate("temperature").exec();
+    res.render("bobas/index", {
+      bobas: bobas,
+      message: "Update Successful",
+    });
   } catch (err) {
+    const bobas = await Boba.find({}).populate("temperature").exec();
     console.log(err);
-    res.redirect("/bobas");
+    res.render("bobas/index", {
+      bobas: bobas,
+      message: "Update Unsuccessful",
+    });
   }
 });
 

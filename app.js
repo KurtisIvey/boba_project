@@ -12,9 +12,6 @@ var indexRouter = require("./routes/index");
 const categoryRouter = require("./routes/category");
 const bobaRouter = require("./routes/boba");
 
-// aws s3 v3
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-
 // use to allow update methods
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));

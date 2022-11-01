@@ -7,9 +7,9 @@
 >
   <div>
     <label>Name of Boba:</label>
-    <input type="text" name="name" value="<%= boba.name%>" />
+    <input type="text" name="name" value="<%= boba.name%>" required />
   </div>
-  <select name="temperature">
+  <select name="temperature" required>
     <% categories.forEach(category => { %> <% if (category.temperature ===
     boba.temperature.temperature) { %>
     <option
@@ -26,7 +26,7 @@
   </select>
   <div>
     <label>Description:</label>
-    <textarea name="description"><%=boba.description %></textarea>
+    <textarea name="description" required><%=boba.description %></textarea>
   </div>
   <div>
     <label>Boba</label>
