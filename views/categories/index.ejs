@@ -1,4 +1,14 @@
-<h2>categories home page</h2>
-<% temperatures.forEach(temp => {%>
-<a href="/categories/<%=temp.id%>"><%= temp.temperature %></a>
-<% }) %>
+<body class="categories">
+  <h2>Categories</h2>
+
+  <div class="categories__container">
+    <% temperatures.forEach(temp => {%>
+    <div>
+      <a class="categories__link" href="/categories/<%=temp.id%>"
+        ><%= temp.temperature %></a
+      >
+    </div>
+
+    <% }) %>
+  </div>
+</body>
