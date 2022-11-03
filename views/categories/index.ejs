@@ -1,14 +1,12 @@
-<body class="categories">
+<div class="categories">
   <h2>Categories</h2>
 
   <div class="categories__container">
     <% temperatures.forEach(temp => {%>
     <div>
-      <a class="<% temp.temperature %>" href="/categories/<%=temp.id%>"
-        ><%= temp.temperature %></a
-      >
+      <a href="/categories/<%=temp.id%>"><%= temp.temperature %></a>
     </div>
 
     <% }) %>
   </div>
-</body>
+</divy>

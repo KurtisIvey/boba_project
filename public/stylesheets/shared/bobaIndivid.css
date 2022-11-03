@@ -1,0 +1,44 @@
+.bobaIndividualContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    .bobaIndividualContainer img {
+        height: 200px;
+        width: auto;}
+
+    .bobaIndividualContainer div, .bobaIndividualContainer p {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
+        font-size: 1.1rem;
+    }
+
+    .bobaIndividualContainer p {
+        border: 1px solid red;
+        max-width: 450px;
+    }
+
+    .bobaIndividualContainer__buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid pink;
+    }
+
+    .bobaIndividualContainer__buttons a {
+        text-decoration: none;        
+        border: 1px solid green;
+        border-radius: 8px;
+        padding: 3px 20px;
+        margin: 20px;
+        box-shadow: 1px 1px 1px .25px gray;
+    }
+
+    #editBtn {
+        background-color:  rgb(89, 132, 107);
+    }
+    #deleteBtn {
+        background-color: rgb(255, 64, 64);
+    }

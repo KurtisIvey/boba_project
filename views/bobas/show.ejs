@@ -1,11 +1,15 @@
-<h1>type of boba <%= boba.name %></h1>
-<div><%=boba.temperature.temperature %></div>
-<div><%=boba.description%></div>
-<% if(boba.url == null) {%>
-<img src="/assets/bobaEmptyCup.png" alt="empty cup of boba" />
-<% }else { %>
-<img src="<%=boba.url%>" alt=" <%= boba.name %>" />
-<% } %>
+<div class="bobaIndividualContainer">
+  <h2><%= boba.name %> Boba</h2>
 
-<a href="/bobas/<%= boba.id%>/edit">Edit</a>
-<a href="/bobas/<%=boba.id%>/deleteconfirm">Delete</a>
+  <% if(boba.url == null) {%>
+  <img src="/assets/bobaEmptyCup.png" alt="empty cup of boba" />
+  <% }else { %>
+  <img src="<%=boba.url%>" alt=" <%= boba.name %>" />
+  <% } %>
+  <div><span>Temperature: </span><%=boba.temperature.temperature %></div>
+  <p><span>Description: </span><%=boba.description%></p>
+  <div class="bobaIndividualContainer__buttons">
+    <a id="editBtn" href="/bobas/<%= boba.id%>/edit">Edit</a>
+    <a id="deleteBtn" href="/bobas/<%=boba.id%>/deleteconfirm">Delete</a>
+  </div>
+</div>
