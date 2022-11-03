@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid pink;
 }
     .categories h2 {
         font-weight: normal;
@@ -15,7 +14,6 @@
 
     .categories__container {
         margin-top: 55px;
-        border: 1px solid green;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         text-align: center;
@@ -32,6 +30,14 @@
         }
         .categories__container div a:hover {
             display: inline-block;
-            color: rgb(89, 132, 107);
             transform: scale(1.2);
+        }
+        .categories__container div:first-child:hover {
+            color: rgb(43, 43, 248);
+        }
+        .categories__container div:nth-child(2):hover {
+            color: rgb(255, 166, 0);
+        }
+        .categories__container div:nth-child(3):hover {
+            color: rgb(255, 64, 64);
         }

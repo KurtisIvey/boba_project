@@ -4,7 +4,7 @@
   <div class="categories__container">
     <% temperatures.forEach(temp => {%>
     <div>
-      <a class="categories__link" href="/categories/<%=temp.id%>"
+      <a class="<% temp.temperature %>" href="/categories/<%=temp.id%>"
         ><%= temp.temperature %></a
       >
     </div>
