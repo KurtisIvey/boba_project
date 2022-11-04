@@ -2,9 +2,14 @@
 @import 'shared/bobaIndivid.css';
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Source+Sans+Pro:wght@200;300&display=swap');
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 98vh;
+  display: grid;
+  grid-template-rows: auto 1fr 100px;
 }
+
+
 
 h2 {
   font-weight: normal;
@@ -21,10 +26,11 @@ span {
 }
 
 .nav {
-  width: 100%;
+  width: auto;
   display: grid;
   grid-template-columns: auto auto;
   margin-bottom: 55px;
+  padding: 0 30px;
 }
 
   .nav__titleContainer {
@@ -34,17 +40,17 @@ span {
   }
     .nav__titleContainer a {
       all: unset;
-      font-size: 2rem;
       cursor: pointer; 
-      ;
+      font-size: 2.5rem;
     }
       .nav__titleContainer a:hover {
         color: rgb(89, 132, 107);
         display: inline-block;
-        transform: scale(1.02);
+        transform: scale(1.1);
       }
       .nav__titleContainer a h1{
-        font-family: 'Sacramento', cursive;
+        
+        font-family: 'Sacramento','Georgia', cursive;
         font-weight: normal;
         text-decoration: underline;
 
@@ -64,9 +70,9 @@ span {
         font-size: 2.1rem;
         list-style-type: none;
         text-align: center;
-        font-family: 'Sacramento', cursive;
+        font-family: 'Sacramento','Georgia', cursive;
         text-decoration: underline;
-
+        justify-self: flex-end;
       }
       .nav__navContainer a:hover{
         color: rgb(89, 132, 107);
@@ -84,11 +90,15 @@ span {
 }
 
 @media screen and (max-width: 468px) {
+  .nav {
+    margin-bottom: 0;
+  }
   .nav__titleContainer {
-    padding: 20px;
   }
   .nav__titleContainer a {
     font-size: 1.25rem;
+  }
+  .nav__navContainer {
   }
   .nav__navContainer a{
     font-size: 1.1rem;

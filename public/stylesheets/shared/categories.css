@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
+    align-self: flex-start;
 }
     .categories h2 {
         text-decoration: underline;

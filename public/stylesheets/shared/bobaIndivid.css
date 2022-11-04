@@ -8,7 +8,9 @@
 
     .bobaIndividualContainer img {
         height: 200px;
-        width: auto;}
+        width: auto;
+        margin-bottom: 20px;
+    }
 
     .bobaIndividualContainer div, .bobaIndividualContainer p {
         font-family: 'Source Sans Pro', sans-serif;
@@ -17,28 +19,28 @@
     }
 
     .bobaIndividualContainer p {
-        border: 1px solid red;
         max-width: 450px;
     }
 
     .bobaIndividualContainer__buttons {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        border: 1px solid pink;
     }
 
     .bobaIndividualContainer__buttons a {
-        text-decoration: none;        
-        border: 1px solid green;
+        text-decoration: none;       
         border-radius: 8px;
         padding: 3px 20px;
         margin: 20px;
-        box-shadow: 1px 1px 1px .25px gray;
+        box-shadow: 1px 1px 1px .25px rgb(218, 218, 218);
+        font-family: 'Sacramento','Georgia', cursive;
     }
 
     #editBtn {
         background-color:  rgb(89, 132, 107);
+        color: white;
     }
     #deleteBtn {
         background-color: rgb(255, 64, 64);
+        color: white;
     }
