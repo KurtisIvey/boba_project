@@ -1,0 +1,38 @@
+.buttonsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.buttonsContainer a, .buttonsContainer button {
+    text-decoration: none;  
+    border: none;     
+    border-radius: 8px;
+    padding: 3px 20px;
+    margin: 20px;
+    font-family: 'Sacramento','Georgia', cursive;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 1px 1px 1px grey;
+    color: white;
+
+}
+
+.primary_Btn {
+    background-color:  rgb(89, 132, 107);
+    box-shadow: 1px 1px 1px rgb(54, 54, 54);
+
+}
+    .primary_Btn:hover {
+        background-color:  rgb(102, 160, 126);
+        transform: scale(1.05);
+    }
+.danger_Btn {
+    background-color: rgb(255, 64, 64);
+    box-shadow: 1px 1px 1px grey;
+
+}
+    .danger_Btn:hover {
+        background-color: rgb(255, 113, 113);
+        transform: scale(1.05);
+
+    }

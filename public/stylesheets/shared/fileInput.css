@@ -1,0 +1,14 @@
+.file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+  }
+
+.file-input label img {
+    height: 50px;
+    width: auto;
+}
+.file-input label img:hover {
+    transform: scale(1.12);
+}

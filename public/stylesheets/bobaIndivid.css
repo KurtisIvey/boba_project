@@ -1,0 +1,25 @@
+.bobaIndividualContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    .bobaIndividualContainer img {
+        height: 200px;
+        width: auto;
+        margin-bottom: 20px;
+    }
+
+    .bobaIndividualContainer div, .bobaIndividualContainer p {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
+        font-size: 1.1rem;
+    }
+
+    .bobaIndividualContainer p {
+        max-width: 450px;
+    }
+
+   

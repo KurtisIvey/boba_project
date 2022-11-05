@@ -8,8 +8,8 @@
   <% } %>
   <div><span>Temperature: </span><%=boba.temperature.temperature %></div>
   <p><span>Description: </span><%=boba.description%></p>
-  <div class="bobaIndividualContainer__buttons">
-    <a id="editBtn" href="/bobas/<%= boba.id%>/edit">Edit</a>
-    <a id="deleteBtn" href="/bobas/<%=boba.id%>/deleteconfirm">Delete</a>
+  <div class="buttonsContainer">
+    <a class="primary_Btn" href="/bobas/<%= boba.id%>/edit">Edit</a>
+    <a class="danger_Btn" href="/bobas/<%=boba.id%>/deleteconfirm">Delete</a>
   </div>
 </div>

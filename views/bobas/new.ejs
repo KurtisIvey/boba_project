@@ -1,38 +1,49 @@
-<h1>add new boba page</h1>
-<form action="/bobas" method="POST" enctype="multipart/form-data">
-  <div>
-    <label>Name of Boba:</label>
-    <input
-      type="text"
-      name="name"
-      required
-      oninvalid="this.setCustomValidity('Name of Boba field cannot be empty')"
-    />
-  </div>
-  <select name="temperature" required>
-    <% categories.forEach(category => { %>
-    <option
-      selected
-      label="<%= category.temperature %>"
-      value="<%= category.id%>"
-    ></option>
-    <% }) %>
-  </select>
-  <div>
-    <label>Description:</label>
+<div class="newContainer">
+  <h2>Add New Boba</h2>
+  <form action="/bobas" method="POST" enctype="multipart/form-data">
+    <div>
+      <label>Name of Boba:</label>
+      <input
+        type="text"
+        name="name"
+        required
+        oninvalid="this.setCustomValidity('Name of Boba field cannot be empty')"
+      />
+    </div>
+    <div>
+      <label>Temperature Category: </label>
+      <select id="temperature" name="temperature" required>
+        <% categories.forEach(category => { %>
+        <option
+          selected
+          label="<%= category.temperature %>"
+          value="<%= category.id%>"
+        ></option>
+        <% }) %>
+      </select>
+    </div>
 
-    <textarea
-      name="description"
-      required
-      oninvalid="this.setCustomValidity('Description of the Boba cannot be empty')"
-    ></textarea>
-  </div>
+    <div>
+      <label>Description:</label>
 
-  <div>
-    <label>Boba</label>
-    <input type="file" name="file" />
-  </div>
+      <textarea
+        name="description"
+        required
+        oninvalid="this.setCustomValidity('Description of the Boba cannot be empty')"
+      >
+Describe the drink</textarea
+      >
+    </div>
 
-  <a href="/bobas">Cancel</a>
-  <button type="submit">Create</button>
-</form>
+    <div class="file-input">
+      <input type="file" id="file" class="file" name="file" />
+      <label for="file"
+        ><img src="https://img.icons8.com/wired/64/null/add-camera.png"
+      /></label>
+    </div>
+    <div class="buttonsContainer">
+      <button class="primary_Btn" type="submit">Create</button
+      ><a class="danger_Btn" href="/bobas">Cancel</a>
+    </div>
+  </form>
+</div>

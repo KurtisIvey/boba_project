@@ -1,9 +1,15 @@
 <div class="">
   <h2>home</h2>
-  <div>
+  <div class="bobaGridContainer">
     <% if (bobas.length > 0) { %> <% bobas.forEach(boba => { %>
-    <h3><%= boba.name%></h3>
-    <div><%= boba.description%></div>
+    <div class="bobaGridCard">
+      <h3><%= boba.name%></h3>
+      <% if(boba.url == null) {%>
+      <img src="/assets/bobaEmptyCup.png" alt="empty cup of boba" />
+      <% }else { %>
+      <img src="<%=boba.url%>" alt=" <%= boba.name %>" />
+      <% } %>
+    </div>
     <% }) %> <% } else { %>
     <p>no more boba...</p>
     <% } %>

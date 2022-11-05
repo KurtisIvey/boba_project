@@ -1,6 +1,12 @@
-@import 'shared/categories.css';
-@import 'shared/bobaIndivid.css';
+@import './categories.css';
+@import './bobaIndivid.css';
+@import './new.css';
+@import 'shared/buttons.css';
+@import 'shared/fileInput.css';
+@import 'shared/bobaGrid.css';
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Source+Sans+Pro:wght@200;300&display=swap');
+
+
 body {
   box-sizing: border-box;
   padding: 10px;
@@ -46,7 +52,7 @@ span {
       .nav__titleContainer a:hover {
         color: rgb(89, 132, 107);
         display: inline-block;
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
       .nav__titleContainer a h1{
         
@@ -59,8 +65,9 @@ span {
 
   .nav__navContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
     align-items: center;
+    justify-items: flex-end;
   }
 
     
@@ -72,7 +79,6 @@ span {
         text-align: center;
         font-family: 'Sacramento','Georgia', cursive;
         text-decoration: underline;
-        justify-self: flex-end;
       }
       .nav__navContainer a:hover{
         color: rgb(89, 132, 107);

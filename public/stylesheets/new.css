@@ -1,0 +1,29 @@
+.newContainer {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+    position: relative;
+}
+
+.newContainer h2 {
+    margin: 0;
+    padding: 10px;
+
+}
+
+.newContainer form {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+    align-items: center;
+}
+
+.newContainer form div {
+    margin-top: 20px;
+}
+
+.newContainer form div label {
+    font-family: 'Sacramento','Georgia', cursive;
+    font-size: 1.4rem;
+}

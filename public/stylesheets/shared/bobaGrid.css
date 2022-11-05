@@ -1,0 +1,23 @@
+.bobaGridContainer {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;    
+    justify-content: center;
+}
+
+.bobaGridCard {
+    border: 1px solid red;
+    border-style: dashed;
+    width: auto;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bobaGridCard img {
+    height: 150px;
+    width: auto;
+}
