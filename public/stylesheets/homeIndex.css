@@ -1,0 +1,23 @@
+.addBoba{
+    text-align: center;
+    
+}
+
+.addBoba a {
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: 'Sacramento','Georgia', cursive;
+    color: rgb(58, 85, 69);
+    text-decoration: underline;
+
+    margin: 10px 20px 55px 20px;
+    
+}
+.addBoba a:hover {
+    color: rgb(103, 154, 122);
+
+    transform: scale(1.1);
+}
+

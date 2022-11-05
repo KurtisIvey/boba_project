@@ -1,13 +1,27 @@
-<h1>bobas index page</h1>
-<a href="/bobas/new">add a new boba</a>
-<br />
+<div class="bobaIndex">
+  <h2>bobas</h2>
 
-<br />
-<% bobas.forEach(boba => { %>
-<div>
-  <div><a href="/bobas/<%= boba.id%> "><%=boba.name %></a></div>
-  <div><%=boba.temperature.temperature%></div>
-  <div><%=boba.description %></div>
+  <div class="addBoba">
+    <a href="/bobas/new">Add a New Boba</a>
+  </div>
+
+  <div class="bobaGridContainer">
+    <% if (bobas.length > 0) { %> <% bobas.forEach(boba => { %>
+    <div class="bobaGridCard">
+      <h3><a href="/bobas/<%= boba.id%> "><%= boba.name%></a></h3>
+      <h4>boba</h4>
+      <h5>Served: <span><%=boba.temperature.temperature%></span></h5>
+      <% if(boba.url == null) {%>
+      <img src="/assets/bobaEmptyCup.png" alt="empty cup of boba" />
+      <% }else { %>
+      <img src="<%=boba.url%>" alt=" <%= boba.name %>" />
+      <% } %>
+      <div>
+        <p><%=boba.description %></p>
+      </div>
+    </div>
+    <% }) %> <% } else { %>
+    <p>no more boba...</p>
+    <% } %>
+  </div>
 </div>
-<br />
-<%}) %>

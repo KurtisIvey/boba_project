@@ -4,6 +4,7 @@
 @import 'shared/buttons.css';
 @import 'shared/fileInput.css';
 @import 'shared/bobaGrid.css';
+@import './homeIndex.css';
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Source+Sans+Pro:wght@200;300&display=swap');
 
 
@@ -24,6 +25,13 @@ h2 {
   text-transform: capitalize;
   font-family: 'Sacramento','Georgia', cursive;
 
+}
+h3, h4, h3 a {
+  all: unset;
+  font-weight: normal;
+  font-family: 'Sacramento','Georgia', cursive;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 span {

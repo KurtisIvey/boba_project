@@ -27,6 +27,7 @@
         }
         .categories__container div a:hover {
             display: inline-block;
+            text-decoration: underline;
             transform: scale(1.2);
         }
         .categories__container div:first-child:hover {

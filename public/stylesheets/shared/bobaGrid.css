@@ -1,23 +1,64 @@
 .bobaGridContainer {
-    border: 1px solid blue;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-rows: auto;    
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-rows: auto;   
+    gap: 40px;
+    padding: 0 9vw;
 }
 
 .bobaGridCard {
-    border: 1px solid red;
-    border-style: dashed;
     width: auto;
-    height: 270px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.bobaGridCard > * {
+}
+
+.bobaGridCard h3 a{
+    font-size: 1.75rem;
+    margin-bottom: 0;
+    padding-bottom: 0; 
+}
+.bobaGridCard h3 a:hover{
+    color: rgb(89, 132, 107);
+    display: inline-block;
+    transform: scale(1.1);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.bobaGridCard h4 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.bobaGridCard h5 {
+    all: unset;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.bobaGridCard div {
+    margin-top: 20px;
+    border: .15px solid rgb(214, 213, 213);
+    box-shadow: 1px 1px 1px rgb(214, 213, 213);
+    border-radius: 20px;
+}
+
+.bobaGridCard div p {
+    font-family: 'Source Sans Pro', sans-serif;
+
+    padding: 0 10px;
+    text-align: center;
+}
 
 .bobaGridCard img {
+    margin-top: 30px;
     height: 150px;
+    border-radius: 21px;
     width: auto;
 }
