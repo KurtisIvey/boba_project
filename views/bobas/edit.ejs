@@ -9,21 +9,25 @@
     <label>Name of Boba:</label>
     <input type="text" name="name" value="<%= boba.name%>" required />
   </div>
-  <select name="temperature" required>
-    <% categories.forEach(category => { %> <% if (category.temperature ===
-    boba.temperature.temperature) { %>
-    <option
-      selected
-      label="<%= category.temperature %>"
-      value="<%= category.id%>"
-    ></option>
-    <% } else { %>
-    <option
-      label="<%= category.temperature %>"
-      value="<%= category.id%>"
-    ></option>
-    <% } %> <% }) %>
-  </select>
+  <div>
+    <label>Served: </label>
+    <select name="temperature" required>
+      <% categories.forEach(category => { %> <% if (category.temperature ===
+      boba.temperature.temperature) { %>
+      <option
+        selected
+        label="<%= category.temperature %>"
+        value="<%= category.id%>"
+      ></option>
+      <% } else { %>
+      <option
+        label="<%= category.temperature %>"
+        value="<%= category.id%>"
+      ></option>
+      <% } %> <% }) %>
+    </select>
+  </div>
+
   <div>
     <label>Description:</label>
     <textarea name="description" required><%=boba.description %></textarea>

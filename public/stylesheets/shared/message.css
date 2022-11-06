@@ -1,0 +1,13 @@
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.message {
+    position: absolute;
+    left: 0;
+    width:100%;
+    text-align: center;
+    animation: fadeOut 3s;
+    opacity: 0;
+}
