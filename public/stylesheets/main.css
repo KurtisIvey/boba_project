@@ -1,11 +1,12 @@
 @import './categories.css';
 @import './bobaIndivid.css';
-@import './new.css';
+@import './bobaHomeIndex.css';
 @import 'shared/buttons.css';
 @import 'shared/fileInput.css';
 @import 'shared/bobaGrid.css';
 @import 'shared/message.css';
-@import './bobaHomeIndex.css';
+@import 'shared/form.css';
+
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Source+Sans+Pro:wght@200;300&display=swap');
 
 

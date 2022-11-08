@@ -1,41 +1,47 @@
-<h1>Edit page</h1>
+<div class="newContainer">
+  <h2>Edit page</h2>
 
-<form
-  action="/bobas/<%=boba.id%>?_method=PUT"
-  method="POST"
-  enctype="multipart/form-data"
->
-  <div>
-    <label>Name of Boba:</label>
-    <input type="text" name="name" value="<%= boba.name%>" required />
-  </div>
-  <div>
-    <label>Served: </label>
-    <select name="temperature" required>
-      <% categories.forEach(category => { %> <% if (category.temperature ===
-      boba.temperature.temperature) { %>
-      <option
-        selected
-        label="<%= category.temperature %>"
-        value="<%= category.id%>"
-      ></option>
-      <% } else { %>
-      <option
-        label="<%= category.temperature %>"
-        value="<%= category.id%>"
-      ></option>
-      <% } %> <% }) %>
-    </select>
-  </div>
+  <form
+    action="/bobas/<%=boba.id%>?_method=PUT"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div>
+      <label>Name of Boba:</label>
+      <input type="text" name="name" value="<%= boba.name%>" required />
+    </div>
+    <div>
+      <label>Served: </label>
+      <select name="temperature" required>
+        <% categories.forEach(category => { %> <% if (category.temperature ===
+        boba.temperature.temperature) { %>
+        <option
+          selected
+          label="<%= category.temperature %>"
+          value="<%= category.id%>"
+        ></option>
+        <% } else { %>
+        <option
+          label="<%= category.temperature %>"
+          value="<%= category.id%>"
+        ></option>
+        <% } %> <% }) %>
+      </select>
+    </div>
 
-  <div>
-    <label>Description:</label>
-    <textarea name="description" required><%=boba.description %></textarea>
-  </div>
-  <div>
-    <label>Boba</label>
-    <input type="file" name="file" />
-  </div>
-  <a href="/bobas">Cancel</a>
-  <button type="submit">Update</button>
-</form>
+    <div>
+      <label>Description:</label>
+      <textarea name="description" required><%=boba.description %></textarea>
+    </div>
+    <div class="file-input">
+      <input type="file" id="file" class="file" name="file" />
+      <label for="file"
+        ><img src="https://img.icons8.com/wired/64/null/add-camera.png"
+      /></label>
+    </div>
+    <div class="buttonsContainer">
+      <a class="danger_Btn" href="/bobas/<%=boba.id%>">Cancel</a>
+      <button class="primary_Btn" type="submit">Update</button>
+    </div>
+  </form>
+</div>

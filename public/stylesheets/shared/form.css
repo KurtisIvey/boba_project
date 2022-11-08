@@ -8,7 +8,8 @@
 .newContainer h2 {
     margin: 0;
     padding: 10px;
-
+    justify-self: center;
+    align-self: center;
 }
 
 .newContainer form {
