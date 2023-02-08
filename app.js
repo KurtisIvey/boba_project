@@ -1,3 +1,4 @@
+require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 const app = express();
@@ -5,7 +6,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
-const uuid = require("uuid").v4;
+const port = process.env.PORT || 3001;
 
 // routes
 var indexRouter = require("./routes/index");
@@ -15,11 +16,6 @@ const bobaRouter = require("./routes/boba");
 // use to allow update methods
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
-
-// hide api key
-require("dotenv").config();
-// API_KEY will come in through process.env as process.env.API_KEY
-//console.log(process.env);
 
 //mongodb
 var mongoose = require("mongoose");
